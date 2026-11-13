@@ -37,8 +37,16 @@ h3,
 }
 
 .logo {
+    display: flex;         /* Alinha a imagem e o texto lado a lado */
+    align-items: center;   /* Centraliza verticalmente */
+    gap: 12px;             /* Espaço entre o ícone e o nome */
     font-size: 32px;
     color: #f6b800;
+}
+
+.logo img {
+    height: 45px;          /* Define o tamanho pequeno do ícone */
+    width: auto;           /* Mantém a proporção sem distorcer */
 }
 
 .logo b {
