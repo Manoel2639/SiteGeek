@@ -38,7 +38,7 @@ h3,
     align-items: center;
     gap: 10px;
     font-size: 32px;
-    color: #dad7d0;
+    color: #f6b800;
 }
 
 .logo img {
@@ -46,11 +46,11 @@ h3,
 }
 
 .logo b {
-    color: #dad7d0;
+    color: #e63946;
     font-weight: normal;
 }
 
-
+/* ===== APRESENTAÇÃO ===== */
 .hero {
     max-width: 1100px;
     margin: auto;
@@ -63,12 +63,12 @@ h3,
 }
 
 .hero span {
-    color: #dad7d0;
+    color: #e63946;
 }
 
 .hero p {
     margin-top: 14px;
-    color: #dad7d0;
+    color: #cdbfa8;
     max-width: 500px;
 }
 
@@ -123,15 +123,15 @@ h3,
 
 /* cores dos pôsteres */
 .laranja {
-    background-color: #f6b800;
+    background: linear-gradient(160deg, #ff9f1c, #c1121f);
 }
 
 .vermelho {
-    background-color: #9d4edd;
+    background: linear-gradient(160deg, #e63946, #6a040f);
 }
 
 .roxo {
-    background-color: #e63946;
+    background: linear-gradient(160deg, #9d4edd, #240046);
 }
 
 /* ===== RODAPÉ ===== */
