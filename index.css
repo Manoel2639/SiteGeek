@@ -92,24 +92,42 @@ h3,
 }
 
 .poster {
-    height: 300px;
-    padding: 16px;
+    position: relative;
+    /* permite colocar imagem e texto por cima */
+    display: block;
+    aspect-ratio: 2 / 3;
+    /* proporção fixa de pôster */
     border: 3px solid #f4ead5;
     border-radius: 6px;
+    overflow: hidden;
+    /* corta a imagem nos cantos */
+    background: #211b17;
+    /* cor que aparece se a imagem não carregar */
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
 .poster:hover {
     transform: scale(1.04);
 }
 
-.emoji {
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: auto;
+/* a imagem enche o card sem esticar */
+.poster img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* texto por cima da imagem, com fundo escuro para dar para ler */
+.poster .texto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 16px 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
 }
 
 .poster h3 {
@@ -118,20 +136,8 @@ h3,
 }
 
 .poster small {
+    display: block;
     margin-top: 6px;
-}
-
-/* cores dos pôsteres */
-.laranja {
-    background: linear-gradient(160deg, #ff9f1c, #c1121f);
-}
-
-.vermelho {
-    background: linear-gradient(160deg, #e63946, #6a040f);
-}
-
-.roxo {
-    background: linear-gradient(160deg, #9d4edd, #240046);
 }
 
 /* ===== RODAPÉ ===== */
