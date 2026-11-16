@@ -156,3 +156,50 @@ footer {
         font-size: 48px;
     }
 }
+
+/* ===== FUNDO DO ANIME (ao passar o mouse no pôster) ===== */
+.fundo-anime {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.fundo-anime.ativo {
+    opacity: 0.4;
+}
+
+/* escurece embaixo e nas bordas para o texto continuar legível */
+.fundo-anime::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 30%, var(--cor, transparent) -80%, transparent 70%),
+        linear-gradient(to bottom, rgba(21, 17, 15, 0.45), #15110f 92%);
+}
+
+/* pôster: transição suave e borda na cor do anime */
+.poster {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.poster:hover,
+.poster:focus-visible {
+    transform: scale(1.04);
+    border-color: var(--cor, #f4ead5);
+    box-shadow: 0 0 24px -4px var(--cor, transparent);
+    outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .fundo-anime,
+    .poster {
+        transition: none;
+    }
+}

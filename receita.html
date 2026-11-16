@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ramen do Naruto - ChibiKitchen</title>
+    <title>Receita - ChibiKitchen</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <!-- IMPORTANTE: sem esta linha a página fica sem estilo -->
     <link rel="stylesheet" href="receita.css">
 </head>
 
@@ -19,102 +18,90 @@
         </a>
     </header>
 
-    <main class="conteudo">
-        <p class="caminho"><a href="index.html">Início</a> / Naruto</p>
+    <!-- Esta página serve para TODAS as receitas: o conteúdo vem do arquivo dados.js (?id=naruto, ?id=sanji...) -->
+    <main class="conteudo" id="app">
+        <p class="caminho"><a href="index.html">Início</a> / <span id="cam-anime"></span></p>
 
-        <!-- ===== IMAGEM DA RECEITA =====
-         Para colocar sua imagem:
-         1) apague o emoji 🍜
-         2) tire o "<!--" e o "-->" da linha <img> abaixo
-        3) troque "naruto-ramen.jpg" pelo nome do seu arquivo
-        Tamanho ideal: 1400 x 540 px -->
-        <div class="capa laranja">
-            <!-- <img src="naruto-ramen.jpg" alt="Ramen do Naruto"> -->
-            🍜
-        </div>
+        <div class="capa" id="capa"><span id="capa-emoji"></span></div>
 
-        <h1>Ramen do Naruto</h1>
-        <p class="sub">O lámen de missô com chashu e ovo marinado da barraca Ichiraku.</p>
+        <h1 id="titulo"></h1>
+        <p class="sub" id="sub"></p>
 
-        <div class="info">
-            <div><strong>2h30</strong>Tempo total</div>
-            <div><strong>2</strong>Porções</div>
-            <div><strong>Média</strong>Dificuldade</div>
-        </div>
+        <div class="info" id="info"></div>
 
-        <h2>Introdução</h2>
-        <p class="intro">Este é o prato mais icônico do anime Naruto, preparado pelo mestre Teuchi (o famoso Tio do
-            Ramen, dono da barraca Ichiraku) e devorado por Naruto Uzumaki. Ele aparece logo no Episódio 1 do anime
-            clássico ("Chegou: Naruto Uzumaki!"), quando o sensei Iruka leva Naruto para comemorar sua formatura na
-            Academia Ninja com uma tigela gigante de lámen, marcando o início da tradição favorita do protagonista ao
-            longo de toda a série.</p>
+        <!-- ABAS: cada uma é uma "página" da receita -->
+        <nav class="abas" role="tablist" aria-label="Partes da receita">
+            <button id="aba-visao" data-ir="visao" role="tab">Visão geral</button>
+            <button id="aba-ingredientes" data-ir="ingredientes" role="tab">Ingredientes</button>
+            <button id="aba-preparo" data-ir="preparo" role="tab">Preparo</button>
+        </nav>
 
-        <h2>Ingredientes</h2>
+        <!-- PÁGINA 1: visão geral -->
+        <section class="pagina" id="pg-visao">
+            <h2>Cena do anime</h2>
+            <p class="intro" id="intro"></p>
 
-        <h3>Carne (Chashu) e ovo marinado (Ajitsuke Tamago)</h3>
-        <ul>
-            <li>400 g de barriga de porco (pancetta) em peça</li>
-            <li>2 ovos grandes</li>
-            <li>1/2 xícara de molho shoyu</li>
-            <li>1/4 de xícara de saquê culinário (ou vinho branco seco)</li>
-            <li>2 colheres (sopa) de açúcar mascavo</li>
-            <li>1 xícara de água</li>
-            <li>2 dentes de alho levemente amassados</li>
-            <li>3 fatias finas de gengibre fresco</li>
-        </ul>
+            <h2>Ficha da receita</h2>
+            <div class="ficha" id="ficha"></div>
 
-        <h3>Caldo de missô</h3>
-        <ul>
-            <li>1 litro de caldo de galinha ou de porco (caseiro ou dissolvido com pouco sal)</li>
-            <li>3 colheres (sopa) de pasta de missô (soja fermentada)</li>
-            <li>1 dente de alho bem ralado</li>
-            <li>1 colher (chá) de gengibre fresco ralado</li>
-            <li>1 colher (sopa) de óleo de gergelim torrado</li>
-        </ul>
+            <h3>Utensílios</h3>
+            <ul class="chips" id="utensilios"></ul>
 
-        <h3>Montagem (rende 2 tigelas grandes)</h3>
-        <ul>
-            <li>2 porções de macarrão próprio para lámen (ou macarrão instantâneo oriental sem o sachê de tempero)</li>
-            <li>4 fatias de narutomaki (massa de peixe japonesa com espiral rosa), opcional, encontrada em mercados
-                orientais</li>
-            <li>2 folhas pequenas de alga nori</li>
-            <li>Cebolinha verde picada e sementes de gergelim torrado a gosto</li>
-        </ul>
+            <p class="dica" id="dica"></p>
 
-        <h2>Modo de preparo</h2>
-        <ol>
-            <li><strong>Prepare o ovo de gema cremosa:</strong> coloque os ovos com casca em uma panela com água já
-                fervente e cozinhe por exatos 6 minutos e 30 segundos. Retire imediatamente e mergulhe em uma tigela com
-                água gelada e gelo por 5 minutos para interromper o cozimento. Descasque com cuidado e reserve.</li>
-            <li><strong>Cozinhe o chashu:</strong> em uma panela média em fogo alto, doure a peça de barriga de porco
-                por cerca de 2 minutos de cada lado. Acrescente a água, o shoyu, o saquê, o açúcar mascavo, o alho e as
-                fatias de gengibre. Abaixe o fogo, tampe a panela e cozinhe por 40 a 50 minutos (virando a carne na
-                metade do tempo), até ficar bem macia.</li>
-            <li><strong>Marine os ovos:</strong> retire a peça de porco da panela e reserve. Deixe o molho escuro do
-                cozimento esfriar um pouco, transfira para um pote fundo junto com os ovos descascados (se precisar,
-                adicione um pouco de água para cobri-los) e leve à geladeira por no mínimo 1 hora para absorverem o
-                sabor.</li>
-            <li><strong>Faça a base do caldo:</strong> em outra panela, aqueça o óleo de gergelim em fogo médio e
-                refogue o alho e o gengibre ralados por 30 segundos, apenas para liberar o aroma. Despeje o caldo de
-                galinha ou de porco e espere levantar fervura.</li>
-            <li><strong>Dissolva o missô:</strong> abaixe o fogo para o mínimo. Pegue uma concha do caldo quente,
-                dissolva a pasta de missô dentro dela com uma colher até ficar totalmente lisa e despeje de volta na
-                panela. Mantenha o caldo quente, mas evite deixar ferver vigorosamente depois desse ponto para não
-                perder o sabor do missô.</li>
-            <li><strong>Cozinhe o macarrão e sele a carne:</strong> cozinhe o macarrão de lámen em água fervente pelo
-                tempo indicado na embalagem (geralmente 2 a 3 minutos) e escorra bem. Fatie a barriga de porco em
-                rodelas de cerca de 0,5 cm e, se quiser intensificar o sabor, passe as fatias rapidamente em uma
-                frigideira quente para dourar as bordas.</li>
-            <li><strong>Monte a tigela do Ichiraku:</strong> divida o macarrão quente em duas tigelas fundas e cubra com
-                o caldo de missô. Disponha as fatias de chashu de um lado, o ovo marinado cortado ao meio no centro,
-                duas fatias de narutomaki, uma folha de alga nori encostada na borda da tigela e finalize com bastante
-                cebolinha picada e gergelim.</li>
-        </ol>
+            <div class="nav-rodape">
+                <span></span>
+                <button class="btn" data-ir="ingredientes">Ver ingredientes →</button>
+            </div>
+        </section>
+
+        <!-- PÁGINA 2: ingredientes (com checklist) -->
+        <section class="pagina" id="pg-ingredientes" hidden>
+            <h2>Ingredientes</h2>
+            <p class="contador" id="contador"></p>
+            <div id="ingredientes"></div>
+
+            <div class="nav-rodape">
+                <button class="btn sec" data-ir="visao">← Visão geral</button>
+                <button class="btn" data-ir="preparo">Começar a cozinhar →</button>
+            </div>
+        </section>
+
+        <!-- PÁGINA 3: passo a passo, um passo por vez -->
+        <section class="pagina" id="pg-preparo" hidden>
+            <h2>Modo de preparo</h2>
+            <div class="barra">
+                <div id="barra"></div>
+            </div>
+
+            <div class="passo" aria-live="polite">
+                <span class="num" id="passo-num"></span>
+                <h3 id="passo-titulo"></h3>
+                <p id="passo-texto"></p>
+            </div>
+
+            <div class="nav-rodape">
+                <button class="btn sec" id="ant">← Anterior</button>
+                <button class="btn" id="prox">Próximo →</button>
+            </div>
+        </section>
 
         <a class="voltar" href="index.html">← Voltar para o início</a>
     </main>
 
     <footer>© 2026 ChibiKitchen</footer>
+
+    <!-- PERSONAGEM NO CANTO (clique nele!). Imagem: imgs/personagens/<id>.png -->
+    <aside class="personagem" id="personagem">
+        <div class="fala" id="fala" role="status"></div>
+        <button class="avatar" id="avatar" type="button">
+            <img id="pers-img" alt="">
+            <span id="pers-emoji" aria-hidden="true"></span>
+        </button>
+    </aside>
+
+    <script src="dados.js"></script>
+    <script src="receita.js"></script>
 
 </body>
 

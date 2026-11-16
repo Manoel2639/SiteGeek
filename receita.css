@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+:root {
+    /* cores da receita (o receita.js troca estes valores) */
+    --c1: #ff9f1c;
+    --c2: #c1121f;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #15110f;
@@ -53,7 +59,7 @@ h3,
 .conteudo {
     max-width: 750px;
     margin: auto;
-    padding: 40px 5%;
+    padding: 40px 5% 20px;
 }
 
 .caminho {
@@ -66,38 +72,19 @@ h3,
     color: #f6b800;
 }
 
-/* ===== RETÂNGULO DA IMAGEM ===== */
+/* ===== CAPA ===== */
 .capa {
     height: 260px;
     border-radius: 8px;
     overflow: hidden;
-    /* corta a imagem nos cantos arredondados */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 80px;
-    /* tamanho do emoji (some quando usar imagem) */
     margin-bottom: 20px;
-}
-
-/* a imagem enche o retângulo sem esticar */
-.capa img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* cores de fundo (aparecem enquanto não tem imagem) */
-.laranja {
-    background: linear-gradient(160deg, #ff9f1c, #c1121f);
-}
-
-.vermelho {
-    background: linear-gradient(160deg, #e63946, #6a040f);
-}
-
-.roxo {
-    background: linear-gradient(160deg, #9d4edd, #240046);
+    background: linear-gradient(160deg, var(--c1), var(--c2));
+    background-size: cover;
+    background-position: center 25%;
 }
 
 /* ===== TÍTULO ===== */
@@ -120,7 +107,7 @@ h1 {
 .info {
     display: flex;
     gap: 10px;
-    margin: 24px 0;
+    margin: 24px 0 8px;
 }
 
 .info div {
@@ -138,11 +125,41 @@ h1 {
     font-size: 22px;
 }
 
-/* ===== INGREDIENTES E PREPARO ===== */
+/* ===== ABAS ===== */
+.abas {
+    display: flex;
+    gap: 6px;
+    margin: 20px 0 0;
+    border-bottom: 2px dashed #4a3f37;
+}
+
+.abas button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    background: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    padding: 8px 14px;
+    color: #a89c8a;
+    cursor: pointer;
+}
+
+.abas button:hover {
+    color: #f4ead5;
+}
+
+.abas button.ativa {
+    color: #f6b800;
+    border-bottom-color: #e63946;
+}
+
+/* ===== TÍTULOS DAS PÁGINAS ===== */
 h2 {
     font-size: 38px;
     color: #e63946;
-    margin: 36px 0 8px;
+    margin: 30px 0 8px;
 }
 
 h3 {
@@ -151,18 +168,161 @@ h3 {
     margin: 18px 0 6px;
 }
 
-ul,
-ol {
-    padding-left: 24px;
+/* ===== VISÃO GERAL ===== */
+.ficha {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
 }
 
-li {
-    margin-bottom: 10px;
+.ficha div {
+    border: 2px solid #4a3f37;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #a89c8a;
 }
 
-ol li::marker {
+.ficha strong {
+    display: block;
+    font-size: 16px;
+    color: #f4ead5;
+}
+
+.chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chips li {
+    margin: 0;
+    padding: 5px 12px;
+    border: 2px solid #4a3f37;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.dica {
+    margin-top: 22px;
+    padding: 14px 16px;
+    background: #211b17;
+    border-left: 4px solid #f6b800;
+    border-radius: 0 6px 6px 0;
+    color: #cdbfa8;
+}
+
+/* ===== INGREDIENTES ===== */
+.contador {
+    color: #a89c8a;
+    font-size: 14px;
+}
+
+.ing {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #2c241f;
+    cursor: pointer;
+}
+
+.ing input {
+    margin-top: 5px;
+    accent-color: #e63946;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.ing input:checked+span {
+    color: #a89c8a;
+    text-decoration: line-through;
+}
+
+/* ===== PREPARO (um passo por vez) ===== */
+.barra {
+    height: 8px;
+    background: #2c241f;
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 12px 0 16px;
+}
+
+#barra {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #f6b800, #e63946);
+    transition: width 0.3s ease;
+}
+
+.passo {
+    min-height: 220px;
+    padding: 22px;
+    background: #211b17;
+    border: 3px solid #f4ead5;
+    border-radius: 8px;
+}
+
+.passo .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
     color: #e63946;
-    font-weight: bold;
+}
+
+.passo h3 {
+    font-size: 34px;
+    margin: 2px 0 10px;
+}
+
+.passo p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* ===== BOTÕES ===== */
+.nav-rodape {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 2px solid #f6b800;
+    background: #f6b800;
+    color: #15110f;
+    cursor: pointer;
+}
+
+.btn.sec {
+    background: transparent;
+    color: #f6b800;
+}
+
+.btn:hover:not(:disabled) {
+    border-color: #e63946;
+    background: #e63946;
+    color: #f4ead5;
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.btn:focus-visible,
+.abas button:focus-visible,
+.avatar:focus-visible {
+    outline: 3px solid #f4ead5;
+    outline-offset: 3px;
 }
 
 .voltar {
@@ -176,6 +336,90 @@ ol li::marker {
     color: #e63946;
 }
 
+/* ===== PERSONAGEM NO CANTO ===== */
+.personagem {
+    position: fixed;
+    right: max(12px, 2vw);
+    bottom: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+    /* só o balão e o boneco recebem clique */
+}
+
+.fala {
+    pointer-events: auto;
+    max-width: 240px;
+    margin: 0 10px 8px 0;
+    padding: 10px 14px;
+    background: #f4ead5;
+    color: #15110f;
+    border-radius: 14px 14px 4px 14px;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fala.on {
+    opacity: 1;
+    transform: none;
+}
+
+.avatar {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-end;
+    height: 170px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+.avatar img {
+    display: block;
+    height: 100%;
+    width: auto;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* enquanto a imagem do personagem não existe, aparece um emoji num círculo */
+.avatar.sem-img {
+    width: 110px;
+    height: 110px;
+    margin: 0 4px 14px 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+    border-radius: 50%;
+    border: 3px solid #f4ead5;
+    background: linear-gradient(160deg, var(--c1), var(--c2));
+}
+
+.avatar.pula {
+    animation: pular 0.5s ease;
+}
+
+@keyframes flutuar {
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes pular {
+    30% {
+        transform: translateY(-26px) rotate(-4deg);
+    }
+
+    60% {
+        transform: translateY(0) scale(1.06, 0.94);
+    }
+}
+
 /* ===== RODAPÉ ===== */
 footer {
     text-align: center;
@@ -186,6 +430,24 @@ footer {
     color: #a89c8a;
 }
 
+/* espaço para o personagem não cobrir o fim da página */
+body {
+    padding-bottom: 150px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .avatar,
+    .avatar.pula {
+        animation: none;
+    }
+
+    .fala,
+    #barra {
+        transition: none;
+    }
+}
+
 /* celular */
 @media (max-width: 600px) {
     h1 {
@@ -194,5 +456,24 @@ footer {
 
     .capa {
         height: 180px;
+    }
+
+    .abas button {
+        font-size: 20px;
+        padding: 8px 8px;
+    }
+
+    .avatar {
+        height: 120px;
+    }
+
+    .avatar.sem-img {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .fala {
+        max-width: 190px;
     }
 }
