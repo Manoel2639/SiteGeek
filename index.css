@@ -163,7 +163,10 @@ footer {
     inset: 0;
     z-index: -1;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
+    /* ^ posição da imagem: "center top" mostra o topo dela (desce a imagem).
+       Para ajustar uma imagem específica, use data-posicao="center 20%" no pôster. */
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
@@ -201,5 +204,35 @@ footer {
     .fundo-anime,
     .poster {
         transition: none;
+    }
+}
+
+/* barra do topo: cor sólida, o fundo do anime não aparece aqui */
+.topo {
+    position: relative;
+    z-index: 1;
+    background: #15110f;
+}
+
+
+/* ===== LOGO AO LADO DA DESCRIÇÃO ===== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* logo colada no texto; aumente/diminua o gap para afastar/aproximar */
+    gap: 24px;
+}
+
+.hero-logo {
+    width: clamp(90px, 20vw, 230px);
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 600px) {
+    .hero {
+        gap: 16px;
     }
 }

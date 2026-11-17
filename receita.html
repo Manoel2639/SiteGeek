@@ -48,11 +48,6 @@
             <ul class="chips" id="utensilios"></ul>
 
             <p class="dica" id="dica"></p>
-
-            <div class="nav-rodape">
-                <span></span>
-                <button class="btn" data-ir="ingredientes">Ver ingredientes →</button>
-            </div>
         </section>
 
         <!-- PÁGINA 2: ingredientes (com checklist) -->
@@ -60,31 +55,30 @@
             <h2>Ingredientes</h2>
             <p class="contador" id="contador"></p>
             <div id="ingredientes"></div>
-
-            <div class="nav-rodape">
-                <button class="btn sec" data-ir="visao">← Visão geral</button>
-                <button class="btn" data-ir="preparo">Começar a cozinhar →</button>
-            </div>
         </section>
 
         <!-- PÁGINA 3: passo a passo, um passo por vez -->
         <section class="pagina" id="pg-preparo" hidden>
             <h2>Modo de preparo</h2>
-            <div class="barra">
-                <div id="barra"></div>
-            </div>
 
             <div class="passo" aria-live="polite">
                 <span class="num" id="passo-num"></span>
                 <h3 id="passo-titulo"></h3>
                 <p id="passo-texto"></p>
             </div>
-
-            <div class="nav-rodape">
-                <button class="btn sec" id="ant">← Anterior</button>
-                <button class="btn" id="prox">Próximo →</button>
-            </div>
         </section>
+
+        <!-- BARRA FIXA PARA PASSAR AS PÁGINAS (sempre visível, no fim da tela) -->
+        <nav class="paginacao" aria-label="Passar página">
+            <button class="btn sec" id="ant" type="button">← Anterior</button>
+            <div class="pos">
+                <span id="pos-texto"></span>
+                <div class="barra">
+                    <div id="barra"></div>
+                </div>
+            </div>
+            <button class="btn" id="prox" type="button">Próxima →</button>
+        </nav>
 
         <a class="voltar" href="index.html">← Voltar para o início</a>
     </main>

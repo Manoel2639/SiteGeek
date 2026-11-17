@@ -16,6 +16,8 @@ document.querySelectorAll('.poster').forEach((poster) => {
 
     const mostrar = () => {
         fundo.style.backgroundImage = existe ? 'url("' + caminho + '")' : 'none';
+        // posição vertical da imagem (opcional, por pôster)
+        fundo.style.backgroundPosition = poster.dataset.posicao || '';
         fundo.style.setProperty('--cor', poster.style.getPropertyValue('--cor'));
         fundo.classList.add('ativo');
     };

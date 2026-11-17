@@ -247,7 +247,7 @@ h3 {
     background: #2c241f;
     border-radius: 99px;
     overflow: hidden;
-    margin: 12px 0 16px;
+    margin: 6px 0 0;
 }
 
 #barra {
@@ -350,7 +350,8 @@ h3 {
 }
 
 .fala {
-    pointer-events: auto;
+    pointer-events: none;
+    /* o balão nunca bloqueia os botões que ficam embaixo dele */
     max-width: 240px;
     margin: 0 10px 8px 0;
     padding: 10px 14px;
@@ -420,6 +421,62 @@ h3 {
     }
 }
 
+/* ===== PASSAR PÁGINAS ===== */
+.paginacao {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 12px 0;
+    background: #15110f;
+    border-top: 2px dashed #4a3f37;
+}
+
+.pos {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #a89c8a;
+}
+
+.paginacao .btn {
+    white-space: nowrap;
+}
+
+/* a página que entra desliza do lado para onde você está indo */
+.pagina.entra-direita {
+    animation: entraDir 0.3s ease;
+}
+
+.pagina.entra-esquerda {
+    animation: entraEsq 0.3s ease;
+}
+
+@keyframes entraDir {
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+}
+
+@keyframes entraEsq {
+    from {
+        opacity: 0;
+        transform: translateX(-28px);
+    }
+}
+
+/* telas estreitas: o personagem sobe para não cobrir a barra */
+@media (max-width: 1100px) {
+    .personagem {
+        bottom: 76px;
+    }
+}
+
 /* ===== RODAPÉ ===== */
 footer {
     text-align: center;
@@ -446,6 +503,11 @@ body {
     #barra {
         transition: none;
     }
+
+    .pagina.entra-direita,
+    .pagina.entra-esquerda {
+        animation: none;
+    }
 }
 
 /* celular */
@@ -463,6 +525,11 @@ body {
         padding: 8px 8px;
     }
 
+    .paginacao .btn {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+
     .avatar {
         height: 120px;
     }
@@ -476,4 +543,9 @@ body {
     .fala {
         max-width: 190px;
     }
+}
+
+/* altura mínima: garante espaço para a rolagem levar o conteúdo até o topo */
+.pagina {
+    min-height: 55vh;
 }
