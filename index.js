@@ -28,3 +28,16 @@ document.querySelectorAll('.poster').forEach((poster) => {
     poster.addEventListener('focus', mostrar);
     poster.addEventListener('blur', esconder);
 });
+
+// Logo do anime no pôster: se o arquivo da logo não for encontrado,
+// mostra o NOME do anime no lugar, para o efeito sempre aparecer.
+document.querySelectorAll('.logo-anime').forEach((img) => {
+    const trocarPorTexto = () => {
+        const texto = document.createElement('span');
+        texto.className = 'logo-anime logo-texto';
+        texto.textContent = img.dataset.nome;
+        img.replaceWith(texto);
+    };
+    img.addEventListener('error', trocarPorTexto);
+    if (img.complete && img.naturalWidth === 0) trocarPorTexto(); // já falhou antes do script rodar
+});

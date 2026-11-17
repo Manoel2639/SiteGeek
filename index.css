@@ -236,3 +236,76 @@ footer {
         gap: 16px;
     }
 }
+
+
+/* ===== LOGO DO ANIME: sobe por trás do pôster e fica em cima dele ===== */
+.grade {
+    row-gap: 0;
+}
+
+/* .item = pôster + espaço reservado em cima para a logo (o pôster corta o que passa da borda, por isso a logo fica fora dele) */
+.item {
+    position: relative;
+    padding-top: 72px;
+}
+
+.item .poster {
+    position: relative;
+    z-index: 1;
+    /* pôster na frente da logo */
+}
+
+/* mesma caixa para todas as logos: elas se ajustam a ela sem distorcer, então ficam num tamanho parecido */
+.logo-anime {
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 66px;
+    z-index: 0;
+    object-fit: contain;
+    object-position: center bottom;
+    /* apoiada na borda de cima do pôster */
+    opacity: 0;
+    transform: translateY(100px);
+    /* escondida atrás do pôster */
+    transition: transform 0.45s cubic-bezier(0.2, 1.3, 0.4, 1), opacity 0.25s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+}
+
+.poster:hover+.logo-anime,
+.poster:focus-visible+.logo-anime {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* nome do anime em texto (quando o arquivo da logo não existe) */
+.logo-texto {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.9);
+    filter: none;
+}
+
+/* celular/tablet (sem mouse): a logo fica sempre visível em cima do pôster */
+@media (hover: none) {
+    .logo-anime {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-anime {
+        transition: opacity 0.2s ease;
+        transform: none;
+    }
+}

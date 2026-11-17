@@ -1,4 +1,5 @@
-/* Dados das receitas. Para criar uma receita nova, copie um bloco e mude os valores. */
+/* Dados das receitas. Para criar uma receita nova, copie um bloco e mude os valores.
+   capa = imagem do topo da receita | logo = logo do anime | poster = imagem do cartão da home */
 window.RECEITAS = [
     {
         "id": "naruto",
@@ -106,7 +107,9 @@ window.RECEITAS = [
                 "Um dia eu vou ser Hokage… depois do ramen.",
                 "Dá para pedir mais narutomaki?"
             ]
-        }
+        },
+        "capa": "imgs/capas/naruto.jpg",
+        "logo": "imgs/logos/naruto.png"
     },
     {
         "id": "sanji",
@@ -197,7 +200,9 @@ window.RECEITAS = [
                 "Um cozinheiro nunca deixa ninguém passar fome.",
                 "Quem vai provar primeiro?"
             ]
-        }
+        },
+        "capa": "imgs/capas/sanji.jpg",
+        "logo": "imgs/logos/one-piece.png"
     },
     {
         "id": "senku",
@@ -278,7 +283,9 @@ window.RECEITAS = [
                 "A ciência deixa tudo mais gostoso.",
                 "Quer saber como funciona o coentro? É só perguntar."
             ]
-        }
+        },
+        "capa": "imgs/capas/senku.jpg",
+        "logo": "imgs/logos/dr-stone.png"
     },
     {
         "id": "vegeta",
@@ -380,6 +387,8 @@ window.RECEITAS = [
                 "O orgulho de um príncipe não permite takoyaki queimado.",
                 "E nem pense em esconder wasabi nisso."
             ]
-        }
+        },
+        "capa": "imgs/capas/vegeta.jpg",
+        "logo": "imgs/logos/dragon-ball-super.png"
     }
 ];

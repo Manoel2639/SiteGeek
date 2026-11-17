@@ -26,13 +26,28 @@
     document.documentElement.style.setProperty('--c2', r.cor[1]);
 
     $('#cam-anime').textContent = r.anime;
-    $('#capa-emoji').textContent = r.emoji;
     $('#titulo').textContent = r.titulo;
     $('#sub').textContent = r.sub;
     $('#intro').textContent = r.intro;
     $('#dica').textContent = 'Dica: ' + r.dica;
-    $('#capa').style.backgroundImage =
-        'linear-gradient(160deg, ' + r.cor[0] + 'bb, ' + r.cor[1] + 'cc), url("' + r.poster + '")';
+    // tema da página: cor do anime
+    document.documentElement.style.setProperty('--glow', r.cor[0] + '40');
+
+    // capa: usa a sua imagem (r.capa). Enquanto ela não existir, mostra o emoji sobre o degradê.
+    const capa = $('#capa');
+    $('#capa-emoji').textContent = r.emoji;
+    const testeCapa = new Image();
+    testeCapa.onload = () => {
+        capa.style.backgroundImage = 'url("' + r.capa + '")';
+        $('#capa-emoji').textContent = '';
+    };
+    testeCapa.src = r.capa;
+
+    // logo do anime no canto da capa (some sozinha se o arquivo não existir)
+    const logo = $('#capa-logo');
+    logo.onload = () => { logo.hidden = false; };
+    logo.src = r.logo;
+    logo.alt = 'Logo de ' + r.anime;
 
     function caixinhas(alvo, lista) {
         lista.forEach(([valor, rotulo]) => {
