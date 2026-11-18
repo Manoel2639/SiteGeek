@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - ChibiKitchen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="receita.css">
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body class="pg-cadastro">
+
+    <!-- IMAGEM DE FUNDO: veja a variável --fundo no começo do cadastro.css -->
+    <div class="fundo-cadastro" aria-hidden="true"></div>
+
+    <header class="topo">
+        <a class="logo" href="index.html">
+            <img src="imgs/logo.png" alt="Logo ChibiKitchen">
+            <span>Chibi<b>Kitchen</b></span>
+        </a>
+        <nav class="menu-topo">
+            <a class="btn-cadastro" href="cadastro.html" aria-current="page">Cadastre-se</a>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <p class="caminho"><a href="index.html">Início</a> / Cadastro</p>
+
+        <div class="titulo-jp">
+            <span class="kanji-v" aria-hidden="true">登録</span>
+            <div>
+                <h1>Cadastre-se</h1>
+                <p class="sub">Crie sua conta e entre na cozinha da ChibiKitchen.</p>
+            </div>
+        </div>
+
+        <div class="cartaz">
+        <form class="form" id="form" novalidate>
+            <span class="selo-canto" aria-hidden="true">料理</span>
+
+            <div class="campo">
+                <label for="nome">Nome <span class="jp" aria-hidden="true">名前</span></label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
+                <small class="erro" id="erro-nome"></small>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail <span class="jp" aria-hidden="true">メール</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <small class="erro" id="erro-email"></small>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha <span class="jp" aria-hidden="true">合言葉</span></label>
+                <input type="password" id="senha" name="senha" autocomplete="new-password" minlength="6" required
+                    aria-describedby="forca-texto regras">
+                <small class="erro" id="erro-senha"></small>
+
+                <div class="forca" aria-hidden="true">
+                    <div class="forca-barra"><span></span><span></span><span></span><span></span></div>
+                    <p id="forca-texto">Força da senha: --</p>
+                </div>
+
+                <ul class="regras" id="regras">
+                    <li data-regra="tam">Pelo menos 6 caracteres</li>
+                    <li data-regra="num">Um número</li>
+                    <li data-regra="mai">Uma letra maiúscula</li>
+                </ul>
+            </div>
+
+            <div class="campo">
+                <label for="senha2">Confirmar senha <span class="jp" aria-hidden="true">確認</span></label>
+                <input type="password" id="senha2" name="senha2" autocomplete="new-password" required>
+                <small class="erro" id="erro-senha2"></small>
+            </div>
+
+            <button class="btn btn-enviar" type="submit">Criar conta</button>
+
+            <div class="ok" id="ok" role="status" hidden>
+                <span class="hanko" aria-hidden="true">完了</span>
+                <p id="ok-texto"></p>
+            </div>
+        </form>
+        </div>
+
+        <a class="voltar" href="index.html">← Voltar para o início</a>
+    </main>
+
+    <footer>© 2026 ChibiKitchen</footer>
+
+    <script src="cadastro.js"></script>
+</body>
+
+</html>

@@ -165,8 +165,10 @@
             void s.offsetWidth; // reinicia a animação
             s.classList.add(direcao);
             // leva as abas para o topo da tela, para o conteúdo da nova página ficar à vista
+            // (desconta a altura do menu fixo no topo)
+            const alvo = $('.topo').offsetHeight + 10;
             const topo = $('.abas').getBoundingClientRect().top;
-            if (Math.abs(topo - 10) > 4) window.scrollTo({ top: window.scrollY + topo - 10, behavior: 'smooth' });
+            if (Math.abs(topo - alvo) > 4) window.scrollTo({ top: window.scrollY + topo - alvo, behavior: 'smooth' });
         }
         try { history.replaceState(null, '', '#' + (pos + 1)); } catch (e) { /* ok */ }
         falar(msg);

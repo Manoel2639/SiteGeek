@@ -79,7 +79,7 @@ window.RECEITAS = [
         "categoria": "Prato principal",
         "emoji": "🍜",
         "cor": [
-            "#ff9f1c",
+            "#FF7B00",
             "#c1121f"
         ],
         "poster": "imgs/Naruto.jpg",
@@ -173,7 +173,7 @@ window.RECEITAS = [
         "categoria": "Prato principal",
         "emoji": "🍤",
         "cor": [
-            "#e63946",
+            "#FFB703",
             "#6a040f"
         ],
         "poster": "imgs/Sanji.jpg",
@@ -256,7 +256,7 @@ window.RECEITAS = [
         "categoria": "Bebida",
         "emoji": "🥤",
         "cor": [
-            "#9d4edd",
+            "#2EC4B6",
             "#240046"
         ],
         "poster": "imgs/Doutor.jpg",
@@ -359,7 +359,7 @@ window.RECEITAS = [
         "categoria": "Petisco",
         "emoji": "🐙",
         "cor": [
-            "#3a86ff",
+            "#00B4D8",
             "#03045e"
         ],
         "poster": "imgs/Vegeta.jpg",
